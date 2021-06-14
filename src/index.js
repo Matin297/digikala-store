@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Providers from './providers';
+import Router from './router/router';
+import 'assets/fonts/Farsi_numerals/webFonts/css/fontiran.css';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Providers>
+      <Router />
+    </Providers>
   </React.StrictMode>,
   document.getElementById('root')
 );
