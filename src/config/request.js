@@ -1,20 +1,19 @@
 import axios from 'axios';
 
-const base_url = 'http://localhost:4000';
+const base_url = 'https://www.digikala.com/front-end/';
 axios.defaults.baseURL = base_url;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-export function request(method = 'get', url) {
+function request(method = 'get', url, params = {}) {
 
     const headers = {
-        'Content-Type': 'application/json'
-        // 'Authorization': localStorage.getItem('token')
+        'token': 'mpfKW9ghVTCSuBZ7qTkSmEyvL38ShZxv'
     };
 
     switch (method) {
         case 'get':
             return axios
-                .get(url, { headers })
+                .get(url, { headers, params })
                 .then(response => {
                     return {
                         ...response,
@@ -29,3 +28,5 @@ export function request(method = 'get', url) {
             return {};
     }
 }
+
+export default request;

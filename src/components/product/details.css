@@ -5,6 +5,11 @@
   margin-top: var(--size-16);
 }
 
+.product-details__image {
+  min-height: 350px;
+  min-width: 350px;
+}
+
 .product-details__data {
   flex-grow: 1;
   display: flex;

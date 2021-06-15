@@ -12,13 +12,13 @@ function ProductDetails({ title, images, price, id, rating }) {
     return (
         <div className="product-details">
             <div className="product-details__image">
-                <img src={images.main} alt={title} />
+                <img src={images?.main} alt={title} />
             </div>
             <div className="product-details__data">
                 <h2> {title} </h2>
-                <Rate rate={rating.rate} />
+                <Rate rate={rating?.rate} />
                 <div>
-                    <Price price={price.selling_price} />
+                    <Price price={price?.selling_price} />
                     <Button variant="outlined" startIcon={<CartSvg />}> افزودن به سبد خرید </Button>
                 </div>
             </div>

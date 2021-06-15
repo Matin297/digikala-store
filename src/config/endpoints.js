@@ -1,10 +1,10 @@
-const PRODUCTS = '/store/about-us';
-const PRODUCT = '/store/appearance-manager';
+const PRODUCTS = 'search/';
+const PRODUCT = 'product/';
 
 const endpoints = {
     products: {
         getAll: PRODUCTS,
-        getOne: id => `${PRODUCT}/${id}`
+        getOne: id => `${PRODUCT}/${id}/`
     }
 };
 

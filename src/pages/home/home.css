@@ -1,6 +1,9 @@
-.home__products {
+.home {
   max-width: 1000px;
   margin: auto;
+}
+
+.home__products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 12px;

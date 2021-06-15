@@ -15,6 +15,7 @@
 }
 
 .product-card img {
+  min-height: 290px;
   max-width: 100%;
 }
 

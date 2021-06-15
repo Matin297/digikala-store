@@ -1,0 +1,27 @@
+.pagination {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.pagination li:not(:first-child, :last-child) {
+  cursor: pointer;
+}
+
+.pagination li {
+  padding: 10px;
+  color: var(--color-grey-300);
+}
+
+.pagination li.active {
+  background-color: white;
+  color: black;
+}
+
+.pagination li button {
+  font-size: var(--size-3);
+}
+
+.pagination li button:focus {
+  outline: none;
+}
