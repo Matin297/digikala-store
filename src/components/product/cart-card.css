@@ -1,0 +1,32 @@
+.product-cart-card,
+.product-cart-card > div:last-child,
+.product-cart-card__btns {
+  display: flex;
+  gap: var(--size-3);
+}
+
+.product-cart-card {
+  padding: var(--size-5);
+}
+
+.product-cart-card img {
+  max-height: 140px;
+}
+
+.product-cart-card > div:last-child {
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-cart-card__btns {
+  margin-top: auto;
+  align-items: center;
+}
+
+.product-cart-card__btns > div:last-of-type {
+  margin-right: auto;
+}
+
+.product-cart-card__btns button {
+  padding: var(--size-2);
+}

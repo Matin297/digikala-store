@@ -1,0 +1,22 @@
+.cart-result {
+  padding: var(--size-5);
+  flex-basis: 300px;
+  align-self: flex-start;
+}
+
+.cart-result > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--size-2);
+  font-size: var(--size-4);
+}
+
+.cart-result > div:first-child {
+  border-bottom: 1px solid var(--color-grey-50);
+  color: var(--color-grey-500);
+}
+
+.cart-result > div > div:last-child {
+  font-size: var(--size-4);
+}

@@ -1,0 +1,15 @@
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-6);
+}
+
+.cart__products {
+  flex-grow: 1;
+}
+
+.cart__product,
+.cart__result {
+  border: 1px solid var(--color-grey-50);
+  border-radius: var(--size-2);
+}

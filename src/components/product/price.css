@@ -1,0 +1,11 @@
+.product-price {
+  font-weight: 500;
+  display: flex;
+  gap: var(--size-1);
+  align-items: center;
+  font-size: var(--size-6);
+}
+
+.product-price > span {
+  font-size: var(--size-3);
+}

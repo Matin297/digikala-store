@@ -1,0 +1,32 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-4);
+  padding: var(--size-5);
+  cursor: pointer;
+  position: relative;
+}
+
+.product-card__rate {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.product-card img {
+  max-width: 100%;
+}
+
+.product-card > p {
+  color: var(--color-grey-600);
+  width: 100%;
+  font-size: var(--size-4);
+}
+
+.product-card > div:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}

@@ -1,0 +1,20 @@
+.home__products {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 12px;
+}
+
+.home__product {
+  border: 1px solid var(--color-grey-50);
+  border-top: 0;
+  margin-left: -1px;
+  transition: all 200ms ease-in-out;
+}
+
+.home__product:hover {
+  border-color: transparent;
+  -webkit-box-shadow: 0 2px 17px 0 rgba(0, 0, 0, 9%);
+  box-shadow: 0 2px 17px 0 rgb(0, 0, 0, 9%);
+}
