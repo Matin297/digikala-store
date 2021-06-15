@@ -9,14 +9,16 @@ import './home.css';
 
 function HomePage({ fetchProducts, products }) {
 
-    useEffect(() => {
-        if (products.params.page === 1)
-            fetchProducts({ page: 1 });
-    }, [fetchProducts, products.params.page]);
-
     function onChangePageHandler(page) {
         fetchProducts({ page });
     }
+
+    useEffect(() => {
+        if (products.params.page === 1)
+            fetchProducts({ page: 1 });
+
+        window.scrollTo(0, 0);
+    }, [fetchProducts, products.params.page]);
 
     return (
         <div className="home">

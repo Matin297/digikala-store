@@ -17,10 +17,6 @@ const initialState = {
     params: {
         page: 1,
         total_pages: 0
-    },
-    pager: {
-        maxPageNumberLimit: 5,
-        minPageNumberLimit: 0
     }
 };
 
@@ -67,10 +63,6 @@ function productsReducer(products = initialState, action) {
                 params: {
                     ...products.params,
                     ...action.payload
-                },
-                pager: {
-                    maxPageNumberLimit: 5,
-                    minPageNumberLimit: 0
                 }
             }
         }

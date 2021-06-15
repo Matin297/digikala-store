@@ -1,3 +1,4 @@
-import { TOGGLE_LOADER } from './types';
+import { OPEN_LOADER, CLOSE_LOADER } from './types';
 
-export const toggleLoader = () => ({ type: TOGGLE_LOADER });
+export const openLoader = () => ({ type: OPEN_LOADER });
+export const closeLoader = () => ({ type: CLOSE_LOADER });

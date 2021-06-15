@@ -1,4 +1,4 @@
-import { TOGGLE_LOADER } from './types';
+import { OPEN_LOADER, CLOSE_LOADER } from './types';
 
 const initialState = {
     isOpen: false
@@ -6,10 +6,16 @@ const initialState = {
 
 const loaderReducer = (loader = initialState, action) => {
     switch (action.type) {
-        case TOGGLE_LOADER:
+        case OPEN_LOADER:
             return {
                 ...loader,
-                isOpen: !loader.isOpen
+                isOpen: true
+            }
+
+        case CLOSE_LOADER:
+            return {
+                ...loader,
+                isOpen: false
             }
 
         default:

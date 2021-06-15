@@ -6,12 +6,24 @@ import "./pagination.css";
 
 const pageNumberLimit = 5;
 
+function getCurrentTheLowerBound(currentPage, numOfPages) {
+    if (currentPage <= 5) return 0;
+    else if (currentPage >= numOfPages - 5) return numOfPages - 5;
+    return currentPage - 3;
+}
+
+function getCurrentTheUpperBound(currentPage, numOfPages) {
+    if (currentPage <= 5) return 5;
+    else if (currentPage >= numOfPages - 5) return numOfPages;
+    return currentPage + 2;
+}
+
 function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
 
-    const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
-    const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+    const [pageUpperBound, setPageUpperBound] = useState(getCurrentTheUpperBound(currentPage, numOfPages));
+    const [pageLowerBound, setPageLowerBound] = useState(getCurrentTheLowerBound(currentPage, numOfPages));
 
-    const handleClick = (event) => onChangePageHandler(Number(event.target.id));
+    const handleClick = e => onChangePageHandler(Number(e.target.id));
 
     const pages = useMemo(() => {
         const list = [];
@@ -21,7 +33,7 @@ function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
     }, [numOfPages]);
 
     const renderPageNumbers = pages.map((number) => {
-        if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+        if (number < pageUpperBound + 1 && number > pageLowerBound) {
             return (
                 <li
                     key={number}
@@ -40,9 +52,9 @@ function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
     const handleNextbtn = () => {
         onChangePageHandler(currentPage + 1);
 
-        if (currentPage + 1 > maxPageNumberLimit) {
-            setmaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
-            setminPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+        if (currentPage + 1 > pageUpperBound) {
+            setPageUpperBound(pageUpperBound + pageNumberLimit);
+            setPageLowerBound(pageLowerBound + pageNumberLimit);
         }
     };
 
@@ -50,8 +62,8 @@ function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
         onChangePageHandler(currentPage - 1);
 
         if ((currentPage - 1) % pageNumberLimit === 0) {
-            setmaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
-            setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+            setPageUpperBound(pageUpperBound - pageNumberLimit);
+            setPageLowerBound(pageLowerBound - pageNumberLimit);
         }
     };
 
@@ -66,9 +78,9 @@ function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
                     قبل
                 </Button>
             </li>
-            {minPageNumberLimit >= 1 && <li onClick={handlePrevbtn}> &hellip; </li>}
+            {pageLowerBound >= 1 && <li onClick={handlePrevbtn}> &hellip; </li>}
             {renderPageNumbers}
-            {pages.length > maxPageNumberLimit && <li onClick={handleNextbtn}> &hellip; </li>}
+            {pages.length > pageUpperBound && <li onClick={handleNextbtn}> &hellip; </li>}
             <li>
                 <Button
                     onClick={handleNextbtn}

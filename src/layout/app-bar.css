@@ -1,8 +1,9 @@
 .app-bar {
   background-color: var(--color-white);
   position: fixed;
-  left: var(--size-6);
-  right: var(--size-6);
+  padding: 0 var(--size-6);
+  left: 0;
+  right: 0;
   box-shadow: 0 7px 8px 0 rgb(0, 0, 0, 4%);
   z-index: 2;
 }
