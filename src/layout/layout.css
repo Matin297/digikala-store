@@ -1,0 +1,7 @@
+.layout {
+  padding: 0 var(--size-6) var(--size-6);
+}
+
+.layout h1 {
+  margin-bottom: var(--size-6);
+}

@@ -1,0 +1,44 @@
+.app-bar {
+  background-color: var(--color-white);
+  position: fixed;
+  left: var(--size-6);
+  right: var(--size-6);
+  box-shadow: 0 7px 8px 0 rgb(0, 0, 0, 4%);
+  z-index: 2;
+}
+
+.layout__toolbar {
+  height: 100px;
+  width: 100%;
+}
+
+.app-bar nav {
+  display: flex;
+  gap: var(--size-6);
+  padding: var(--size-6) 0;
+  align-items: center;
+  /* max-width: 1200px; */
+  margin: auto;
+}
+
+.app-bar nav > a:first-child {
+  display: flex;
+}
+
+.app-bar__link {
+  font-size: var(--size-4);
+  transition: all 200ms ease-in-out;
+}
+
+.app-bar__link:hover {
+  color: var(--color-primary-700);
+}
+
+.app-bar__link--active {
+  color: var(--color-primary-600);
+  font-weight: bold;
+}
+
+.app-bar button {
+  margin-right: auto;
+}
