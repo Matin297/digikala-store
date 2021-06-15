@@ -10,7 +10,8 @@ import './home.css';
 function HomePage({ fetchProducts, products }) {
 
     useEffect(() => {
-        fetchProducts({ page: 1 });
+        if (products.params.page === 1)
+            fetchProducts({ page: 1 });
     }, [fetchProducts, products.params.page]);
 
     function onChangePageHandler(page) {

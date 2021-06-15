@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { increaseProduct, decreaseProduct, removeProduct } from 'store/cart/actions';
 // COMPONENTS
 import Button from '../ui/button';
 import Price from './price';
@@ -10,27 +12,52 @@ import { ReactComponent as TrashIcon } from 'assets/svgs/trash.svg';
 // STYLES
 import './cart-card.css';
 
-function ProductCartCard({ title, images, price, id }) {
+function ProductCartCard({ product, increaseProduct, decreaseProduct, removeProduct }) {
 
     return (
         <div className="product-cart-card">
             <div>
-                <Link to={`/${id}`}>
-                    <img src={images.main} alt={title} />
+                <Link to={`/${product.id}`}>
+                    <img src={product.images.main} alt={product.title} />
                 </Link>
             </div>
             <div>
-                <p> {title} </p>
+                <p> {product.title} </p>
                 <div className="product-cart-card__btns">
-                    <Button variant="outlined" startIcon={<PlusIcon />} />
-                    <span> 1 </span>
-                    <Button color="secondry" variant="outlined" startIcon={<MinusIcon />} />
-                    <Button color="secondry" variant="text" startIcon={<TrashIcon />} />
-                    <Price price={price.selling_price} />
+                    <Button
+                        variant="outlined"
+                        startIcon={<PlusIcon />}
+                        onClick={() => increaseProduct(product)}
+                    />
+                    <span> {product.qnt} </span>
+                    <Button
+                        color="secondry"
+                        variant="outlined"
+                        startIcon={<MinusIcon />}
+                        disabled={product.qnt === 1}
+                        onClick={() => decreaseProduct(product)}
+                    />
+                    <Button
+                        color="secondry"
+                        variant="text"
+                        startIcon={<TrashIcon />}
+                        onClick={() => removeProduct(product)}
+                    />
+                    <Price price={product.price.selling_price} />
                 </div>
             </div>
         </div >
     );
 }
 
-export default ProductCartCard;
+const mapStateToProps = state => ({
+    cart: state.cart
+});
+
+const mapDispatchToProps = {
+    increaseProduct,
+    decreaseProduct,
+    removeProduct
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCartCard);

@@ -17,7 +17,7 @@ function ProductDetailsPage({ fetchProduct, resetProduct, product }) {
 
     return (
         <div>
-            <ProductDetails {...product} />
+            <ProductDetails product={product} />
         </div>
     );
 }
