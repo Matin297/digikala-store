@@ -1,0 +1,9 @@
+.rate {
+  display: flex;
+  gap: var(--size-1);
+}
+
+.rate svg {
+  width: var(--size-6);
+  height: var(--size-6);
+}
