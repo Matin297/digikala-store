@@ -1,27 +1,27 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 // COMPONENTS
 import Button from './button';
 // STYLES
 import "./pagination.css";
 
-const pageNumberLimit = 5;
+const pageBound = 5;
 
-function getCurrentTheLowerBound(currentPage, numOfPages) {
-    if (currentPage <= 5) return 0;
-    else if (currentPage >= numOfPages - 5) return numOfPages - 5;
+function getLowerBound(currentPage, numOfPages) {
+    if (currentPage <= pageBound || numOfPages <= pageBound) return 0;
+    else if (currentPage >= numOfPages - pageBound) return numOfPages - pageBound;
     return currentPage - 3;
 }
 
-function getCurrentTheUpperBound(currentPage, numOfPages) {
-    if (currentPage <= 5) return 5;
-    else if (currentPage >= numOfPages - 5) return numOfPages;
+function getUpperBound(currentPage, numOfPages) {
+    if (currentPage <= pageBound || numOfPages <= pageBound) return pageBound;
+    else if (currentPage >= numOfPages - pageBound) return numOfPages;
     return currentPage + 2;
 }
 
 function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
 
-    const [pageUpperBound, setPageUpperBound] = useState(getCurrentTheUpperBound(currentPage, numOfPages));
-    const [pageLowerBound, setPageLowerBound] = useState(getCurrentTheLowerBound(currentPage, numOfPages));
+    const [pageUpperBound, setPageUpperBound] = useState(0);
+    const [pageLowerBound, setPageLowerBound] = useState(pageBound);
 
     const handleClick = e => onChangePageHandler(Number(e.target.id));
 
@@ -51,21 +51,18 @@ function PaginationComponent({ currentPage, onChangePageHandler, numOfPages }) {
 
     const handleNextbtn = () => {
         onChangePageHandler(currentPage + 1);
-
-        if (currentPage + 1 > pageUpperBound) {
-            setPageUpperBound(pageUpperBound + pageNumberLimit);
-            setPageLowerBound(pageLowerBound + pageNumberLimit);
-        }
     };
 
     const handlePrevbtn = () => {
         onChangePageHandler(currentPage - 1);
-
-        if ((currentPage - 1) % pageNumberLimit === 0) {
-            setPageUpperBound(pageUpperBound - pageNumberLimit);
-            setPageLowerBound(pageLowerBound - pageNumberLimit);
-        }
     };
+
+    useEffect(() => {
+        if (numOfPages) {
+            setPageUpperBound(getUpperBound(currentPage, numOfPages));
+            setPageLowerBound(getLowerBound(currentPage, numOfPages));
+        }
+    }, [numOfPages, currentPage])
 
     return (
         <ul className="pagination">
