@@ -31,8 +31,14 @@ function ProductCard({ product, increaseProduct, openModal }) {
             </div>
             <p> {product.title} </p>
             <div>
-                <Button onClick={addToCartHandler} startIcon={<CartSvg />} />
-                <Price price={product.price.selling_price} originalPrice={product.price.rrp_price} />
+                {
+                    product.status === "out_of_stock" ?
+                        <span> -- ناموجود -- </span> :
+                        <>
+                            <Button onClick={addToCartHandler} startIcon={<CartSvg />} />
+                            <Price price={product.price.selling_price} originalPrice={product.price.rrp_price} />
+                        </>
+                }
             </div>
         </div>
     );

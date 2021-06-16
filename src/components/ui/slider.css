@@ -1,0 +1,7 @@
+.slider input {
+  width: 100%;
+}
+
+.slider__range {
+  font-size: var(--size-3);
+}

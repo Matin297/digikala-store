@@ -4,6 +4,7 @@ import { fetchProducts } from 'store/products/actions';
 // COMPONENTS
 import ProductCard from 'components/product/card';
 import Pagination from 'components/ui/pagination';
+import ProductsFilters from 'components/home-page/filters';
 // STYLES
 import './home.css';
 
@@ -22,23 +23,32 @@ function HomePage({ fetchProducts, products }) {
 
     return (
         <div className="home">
-            <ul className="home__products">
-                {
-                    products.data.map(product => (
-                        <li key={product.id} className="home__product">
-                            <ProductCard product={product} />
-                        </li>
-                    ))
-                }
-            </ul>
-            {
-                !!products.params.total_pages &&
-                <Pagination
-                    currentPage={products.params.page}
-                    onChangePageHandler={onChangePageHandler}
-                    numOfPages={products.params.total_pages}
+            <div>
+                <ProductsFilters
+                    requestFilter={fetchProducts}
+                    price={products.price_options}
+                    params={products.params}
                 />
-            }
+            </div>
+            <div>
+                <ul className="home__products">
+                    {
+                        products.data.map(product => (
+                            <li key={product.id} className="home__product">
+                                <ProductCard product={product} />
+                            </li>
+                        ))
+                    }
+                </ul>
+                {
+                    !!products.total_pages &&
+                    <Pagination
+                        currentPage={products.params.page}
+                        onChangePageHandler={onChangePageHandler}
+                        numOfPages={products.total_pages}
+                    />
+                }
+            </div>
         </div>
     );
 }

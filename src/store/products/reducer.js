@@ -15,8 +15,12 @@ const initialState = {
     product: {},
     errors: {},
     params: {
-        page: 1,
-        total_pages: 0
+        page: 1
+    },
+    total_pages: 0,
+    price_options: {
+        min: 0,
+        max: 0
     }
 };
 
@@ -41,7 +45,9 @@ function productsReducer(products = initialState, action) {
             return {
                 ...products,
                 data: action.payload.products,
-                loading: false
+                total_pages: action.payload.pager.total_pages,
+                price_options: action.payload.filters.price.options,
+                loading: false,
             };
 
         case FETCH_PRODUCT_SUCCESS:

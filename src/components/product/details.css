@@ -3,11 +3,12 @@
   flex-wrap: wrap;
   gap: var(--size-5);
   margin-top: var(--size-16);
+  justify-content: center;
 }
 
 .product-details__image {
   min-height: 350px;
-  min-width: 350px;
+  min-width: 250px;
 }
 
 .product-details__data {
@@ -22,4 +23,8 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--size-5);
+}
+
+.product-details__data > div:last-of-type > span {
+  font-size: var(--size-8);
 }

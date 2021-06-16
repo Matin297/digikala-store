@@ -1,0 +1,22 @@
+.home__filters {
+  padding: var(--size-6);
+}
+
+.home__filters h2 {
+  margin-bottom: var(--size-6);
+}
+
+.home__filters h2 svg {
+  width: var(--size-6);
+  height: var(--size-6);
+  fill: var(--color-primary-600);
+  margin-left: var(--size-1);
+}
+
+.home__filters form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--size-5);
+  /* align-items: flex-start; */
+}

@@ -2,6 +2,8 @@
   padding: var(--size-5);
   flex-basis: 300px;
   align-self: flex-start;
+  position: sticky;
+  top: 100px;
 }
 
 .cart-result > div {

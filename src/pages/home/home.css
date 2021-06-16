@@ -1,6 +1,22 @@
 .home {
   /* max-width: 1000px; */
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.home > div:first-child {
+  min-width: 300px;
+  max-width: 100%;
+}
+
+.home > div:first-child > div {
+  position: sticky;
+  top: 100px;
+}
+
+.home > div:last-child {
+  flex-grow: 1;
 }
 
 .home__products {

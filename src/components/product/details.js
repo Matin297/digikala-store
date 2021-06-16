@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { increaseProduct } from 'store/cart/actions';
+import imagePlaceholder from 'assets/images/image.png'
 // COMPONENTS
 import Rate from './rate';
 import Price from './price';
@@ -23,20 +24,27 @@ function ProductDetails({ product, increaseProduct }) {
     return (
         <div className="product-details">
             <div className="product-details__image">
-                <img src={product.images?.main} alt={product.title} />
+                <img src={product.images?.main || imagePlaceholder} alt={product.title} />
             </div>
             <div className="product-details__data">
                 <h2> {product.title} </h2>
                 <Rate rate={product.rating?.rate} />
                 <div>
-                    <Price price={product.price?.selling_price} originalPrice={product.price?.rrp_price} />
-                    <Button
-                        variant="outlined"
-                        startIcon={<CartSvg />}
-                        onClick={onAddToCartHandler}
-                    >
-                        افزودن به سبد خرید
-                    </Button>
+                    {
+                        product.status === "out_of_stock" ?
+                            <span> -- ناموجود -- </span> :
+                            <>
+                                <Price price={product.price?.selling_price} originalPrice={product.price?.rrp_price} />
+                                <Button
+                                    variant="outlined"
+                                    startIcon={<CartSvg />}
+                                    onClick={onAddToCartHandler}
+                                    disabled={!product.id}
+                                >
+                                    افزودن به سبد خرید
+                                </Button>
+                            </>
+                    }
                 </div>
             </div>
         </div>

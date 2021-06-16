@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { requestErrorHandler } from 'utils/helpers';
 
 const base_url = 'https://www.digikala.com/front-end/';
 axios.defaults.baseURL = base_url;
@@ -21,7 +22,7 @@ function request(method = 'get', url, params = {}) {
                     };
                 })
                 .catch(err => {
-                    return err?.response;
+                    return requestErrorHandler(err?.response);
                 });
 
         default:

@@ -1,0 +1,24 @@
+.snackbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 5rem;
+  width: 100%;
+  background-color: var(--color-grey-800);
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  color: var(--color-white);
+  padding: 0.5rem 10%;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.snackbar--error {
+  background-color: var(--color-error-500);
+}
+
+.snackbar--error svg {
+  fill: var(--color-white);
+  width: var(--size-6);
+  margin-left: var(--size-5);
+}

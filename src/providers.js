@@ -5,6 +5,7 @@ import { store, persistor } from './store/index';
 // COMPONENTS
 import Loader from 'components/ui/loader';
 import Modal from 'components/ui/modal/modal';
+import Snackbar from 'components/ui/snackbar';
 
 function Providers({ children }) {
     return (
@@ -13,6 +14,7 @@ function Providers({ children }) {
                 {children}
                 <Loader />
                 <Modal />
+                <Snackbar />
             </PersistGate>
         </Provider>
     );

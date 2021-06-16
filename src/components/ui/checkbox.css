@@ -1,0 +1,18 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox svg {
+  width: 20px;
+  height: 20px;
+  margin-left: var(--size-2);
+}
+
+.checkbox--checked svg {
+  color: var(--color-primary-600);
+}
