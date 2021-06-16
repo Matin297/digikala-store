@@ -6,6 +6,9 @@
   right: 0;
   box-shadow: 0 7px 8px 0 rgb(0, 0, 0, 4%);
   z-index: 2;
+  min-height: 82px;
+  display: flex;
+  align-items: stretch;
 }
 
 .layout__toolbar {
@@ -15,11 +18,11 @@
 
 .app-bar nav {
   display: flex;
+  flex-basis: 100%;
   gap: var(--size-6);
   padding: var(--size-6) 0;
   align-items: center;
   /* max-width: 1200px; */
-  margin: auto;
 }
 
 .app-bar nav > a:first-child {

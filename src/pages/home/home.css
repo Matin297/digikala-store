@@ -6,7 +6,6 @@
 .home__products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 12px;
 }
 
 .home__product {

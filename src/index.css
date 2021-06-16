@@ -88,6 +88,10 @@ a {
   color: inherit;
 }
 
+img {
+  object-fit: cover;
+}
+
 h1,
 h2,
 h3 {
