@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { increaseProduct } from 'store/cart/actions';
 import { openModal } from 'store/modal/actions';
 import { CART } from 'config/modal-body-types';
-import imagePlaceholder from 'assets/images/image.png';
 // COMPONENTS
 import Button from '../ui/button';
 import Rate from './rate';

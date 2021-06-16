@@ -33,11 +33,13 @@ function HomePage({ fetchProducts, products }) {
             <div>
                 <ul className="home__products">
                     {
-                        products.data.map(product => (
-                            <li key={product.id} className="home__product">
-                                <ProductCard product={product} />
-                            </li>
-                        ))
+                        products.data.length ?
+                            products.data.map(product => (
+                                <li key={product.id} className="home__product">
+                                    <ProductCard product={product} />
+                                </li>
+                            )) :
+                            <p> محصولی یافت نشد... </p>
                     }
                 </ul>
                 {

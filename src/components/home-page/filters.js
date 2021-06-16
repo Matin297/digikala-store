@@ -47,6 +47,7 @@ function ProductsFilters({ requestFilter, price, params }) {
                     label="محدوده قیمت"
                     id="price[max]"
                     value={state['price[max]']}
+                    unit="تومان"
                     onChange={({ target }) => setStateHandler('price[max]', target.value)}
                 />
                 <Input defaultValue={params.q || ''} id="title" label="جستوجو محصول" />
