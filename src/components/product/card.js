@@ -9,6 +9,7 @@ import imagePlaceholder from 'assets/images/image.png';
 import Button from '../ui/button';
 import Rate from './rate';
 import Price from './price';
+import Image from './image';
 // ICONS
 import { ReactComponent as CartSvg } from 'assets/svgs/cart.svg';
 // STYLES
@@ -28,7 +29,7 @@ function ProductCard({ product, increaseProduct, openModal }) {
         <div className="product-card" onClick={() => history.push(`/${product.id}`)}>
             <Rate rate={product.rating.rate} className="product-card__rate" />
             <div>
-                <img src={product.images.main || imagePlaceholder} alt={product.title} />
+                <Image src={product.images.main} alt={product.title} />
             </div>
             <p> {product.title} </p>
             <div>

@@ -7,6 +7,7 @@ import imagePlaceholder from 'assets/images/image.png';
 import Rate from './rate';
 import Price from './price';
 import Button from '../ui/button';
+import Image from './image';
 // ICONS
 import { ReactComponent as CartSvg } from 'assets/svgs/cart.svg';
 // STYLES
@@ -24,7 +25,7 @@ function ProductDetails({ product, increaseProduct }) {
     return (
         <div className="product-details">
             <div className="product-details__image">
-                <img src={product.images?.main || imagePlaceholder} alt={product.title} />
+                <Image src={product.images?.main} alt={product.title} />
             </div>
             <div className="product-details__data">
                 <h2> {product.title} </h2>
