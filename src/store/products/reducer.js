@@ -46,7 +46,7 @@ function productsReducer(products = initialState, action) {
                 ...products,
                 data: action.payload.products,
                 total_pages: action.payload.pager.total_pages,
-                price_options: action.payload.filters.price.options,
+                price_options: action.payload.products.length ? action.payload.filters.price.options : { min: 0, max: 0 },
                 loading: false,
             };
 
