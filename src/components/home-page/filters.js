@@ -25,16 +25,8 @@ function ProductsFilters({ requestFilter, price, params }) {
 
     const onSubmitHandler = e => {
         e.preventDefault();
-
         const { title } = e.target.elements;
-
-        const reqBody = { ...state, page: 1, q: title.value };
-
-        // Removes the max price from the request body when it is 0
-        if (Number(state['price[max]']) === 0)
-            delete reqBody['price[max]'];
-
-        requestFilter(reqBody);
+        requestFilter({ ...state, page: 1, q: title.value });
     }
 
     return (
