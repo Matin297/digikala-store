@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { increaseProduct, decreaseProduct, removeProduct } from 'store/cart/actions';
+import imagePlaceholder from 'assets/images/image.png';
 // COMPONENTS
 import Button from '../ui/button';
 import Price from './price';
@@ -19,9 +20,9 @@ function ProductCartCard({ product, increaseProduct, decreaseProduct, removeProd
                 {
                     withLink ?
                         <Link to={`/${product.id}`}>
-                            <img src={product.images.main} alt={product.title} />
+                            <img src={null || imagePlaceholder} alt={product.title} />
                         </Link> :
-                        <img src={product.images.main} alt={product.title} />
+                        <img src={null || imagePlaceholder} alt={product.title} />
                 }
             </div>
             <div>

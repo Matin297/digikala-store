@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { increaseProduct } from 'store/cart/actions';
-import imagePlaceholder from 'assets/images/image.png'
+import imagePlaceholder from 'assets/images/image.png';
 // COMPONENTS
 import Rate from './rate';
 import Price from './price';
