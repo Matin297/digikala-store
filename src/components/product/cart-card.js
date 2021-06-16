@@ -46,7 +46,7 @@ function ProductCartCard({ product, increaseProduct, decreaseProduct, removeProd
                         startIcon={<TrashIcon />}
                         onClick={() => removeProduct(product)}
                     />
-                    <Price price={product.price.selling_price} />
+                    <Price price={product.price.selling_price} originalPrice={product.price.rrp_price} />
                 </div>
             </div>
         </div >

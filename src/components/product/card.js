@@ -32,7 +32,7 @@ function ProductCard({ product, increaseProduct, openModal }) {
             <p> {product.title} </p>
             <div>
                 <Button onClick={addToCartHandler} startIcon={<CartSvg />} />
-                <Price price={product.price.selling_price} />
+                <Price price={product.price.selling_price} originalPrice={product.price.rrp_price} />
             </div>
         </div>
     );

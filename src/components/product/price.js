@@ -3,11 +3,28 @@ import { formatNumber } from 'utils/helpers';
 // STYlES
 import './price.css';
 
-function ProductPrice({ price }) {
+function getPercentage(num, denom) {
+    return Math.round(((denom - num) / denom) * 100)
+}
+
+function ProductPrice({ price, originalPrice }) {
     return (
         <div className="product-price">
-            <p> {formatNumber(price)} </p>
-            <span> تومان </span>
+            {
+                originalPrice &&
+                price !== originalPrice &&
+                <>
+                    <span className="product-price__prev">
+                        <span> {formatNumber(originalPrice)} </span>
+                        <span className="product-price__unit"> تومان </span>
+                    </span>
+                    <span className="product-price__discount"> {getPercentage(price, originalPrice)}% </span>
+                </>
+            }
+            <div className="product-price__next">
+                <span> {formatNumber(price)} </span>
+                <span className="product-price__unit"> تومان </span>
+            </div>
         </div>
     );
 }

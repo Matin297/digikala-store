@@ -29,7 +29,7 @@ function ProductDetails({ product, increaseProduct }) {
                 <h2> {product.title} </h2>
                 <Rate rate={product.rating?.rate} />
                 <div>
-                    <Price price={product.price?.selling_price} />
+                    <Price price={product.price?.selling_price} originalPrice={product.price?.rrp_price} />
                     <Button
                         variant="outlined"
                         startIcon={<CartSvg />}
