@@ -28,14 +28,11 @@ function ProductsFilters({ requestFilter, price, params }) {
 
         const { title } = e.target.elements;
 
-        const reqBody = { ...state, page: 1 };
+        const reqBody = { ...state, page: 1, q: title.value };
 
         // Removes the max price from the request body when it is 0
         if (Number(state['price[max]']) === 0)
             delete reqBody['price[max]'];
-
-        if (!!title.value)
-            reqBody.q = title.value;
 
         requestFilter(reqBody);
     }
