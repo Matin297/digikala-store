@@ -4,10 +4,10 @@ import AppBar from './app-bar';
 // STYLES
 import './layout.css';
 
-function Layout({ title, children }) {
+function Layout({ title, children, ...appBarProps }) {
     return (
         <main className="layout">
-            <AppBar />
+            <AppBar {...appBarProps} />
             <div className="layout__toolbar"></div>
             <section>
                 <h1> {title} </h1>

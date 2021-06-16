@@ -1,36 +1,43 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { increaseProduct } from 'store/cart/actions';
+import { openModal } from 'store/modal/actions';
+import { CART } from 'config/modal-body-types';
 // COMPONENTS
 import Button from '../ui/button';
-import Rate from '../ui/rate';
+import Rate from './rate';
 import Price from './price';
 // ICONS
 import { ReactComponent as CartSvg } from 'assets/svgs/cart.svg';
 // STYLES
 import './card.css';
 
-function ProductCard({ title, images, price, id, rating }) {
+function ProductCard({ product, increaseProduct, openModal }) {
 
     const history = useHistory();
 
     const addToCartHandler = e => {
         e.stopPropagation();
-        console.log('added to cart');
+        increaseProduct(product);
+        openModal({ type: CART });
     }
 
     return (
-        <div className="product-card" onClick={() => history.push(`/${id}`)}>
-            <Rate rate={rating.rate} className="product-card__rate" />
+        <div className="product-card" onClick={() => history.push(`/${product.id}`)}>
+            <Rate rate={product.rating.rate} className="product-card__rate" />
             <div>
-                <img src={images.main} alt={title} />
+                <img src={product.images.main} alt={product.title} />
             </div>
-            <p> {title} </p>
+            <p> {product.title} </p>
             <div>
                 <Button onClick={addToCartHandler} startIcon={<CartSvg />} />
-                <Price price={price.selling_price} />
+                <Price price={product.price.selling_price} />
             </div>
         </div>
     );
 }
 
-export default ProductCard;
+const mapDispatchToProps = { increaseProduct, openModal };
+
+export default connect(null, mapDispatchToProps)(ProductCard);

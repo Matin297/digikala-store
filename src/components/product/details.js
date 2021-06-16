@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { increaseProduct } from 'store/cart/actions';
 // COMPONENTS
-import Rate from '../ui/rate';
+import Rate from './rate';
 import Price from './price';
 import Button from '../ui/button';
 // ICONS

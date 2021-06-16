@@ -7,7 +7,7 @@ import ProductDetailsPage from 'pages/product-details/product-details';
 import CartPage from 'pages/cart/cart';
 
 const ROUTE_COMPONENTS = [
-    { Component: HomePage, exact: true, path: '/', title: 'خانه' },
+    { Component: HomePage, exact: true, path: '/', title: 'خانه', hasCart: true },
     { Component: CartPage, path: '/cart', title: 'سبد خرید' },
     { Component: ProductDetailsPage, path: '/:productId', title: 'جزئیات محصول' }
 ];
@@ -22,7 +22,7 @@ function Router() {
                             key={route.path}
                             {...route}
                             render={routeProps => (
-                                <Layout title={route.title}>
+                                <Layout {...route}>
                                     <Component {...routeProps} />
                                 </Layout>
                             )}

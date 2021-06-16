@@ -2,6 +2,7 @@
 .product-cart-card > div:last-child,
 .product-cart-card__btns {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--size-3);
 }
 

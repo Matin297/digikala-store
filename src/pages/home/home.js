@@ -26,7 +26,7 @@ function HomePage({ fetchProducts, products }) {
                 {
                     products.data.map(product => (
                         <li key={product.id} className="home__product">
-                            <ProductCard {...product} />
+                            <ProductCard product={product} />
                         </li>
                     ))
                 }

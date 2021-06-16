@@ -12,14 +12,17 @@ import { ReactComponent as TrashIcon } from 'assets/svgs/trash.svg';
 // STYLES
 import './cart-card.css';
 
-function ProductCartCard({ product, increaseProduct, decreaseProduct, removeProduct }) {
-
+function ProductCartCard({ product, increaseProduct, decreaseProduct, removeProduct, withLink }) {
     return (
         <div className="product-cart-card">
             <div>
-                <Link to={`/${product.id}`}>
-                    <img src={product.images.main} alt={product.title} />
-                </Link>
+                {
+                    withLink ?
+                        <Link to={`/${product.id}`}>
+                            <img src={product.images.main} alt={product.title} />
+                        </Link> :
+                        <img src={product.images.main} alt={product.title} />
+                }
             </div>
             <div>
                 <p> {product.title} </p>

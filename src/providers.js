@@ -4,6 +4,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store/index';
 // COMPONENTS
 import Loader from 'components/ui/loader';
+import Modal from 'components/ui/modal/modal';
 
 function Providers({ children }) {
     return (
@@ -11,6 +12,7 @@ function Providers({ children }) {
             <PersistGate persistor={persistor}>
                 {children}
                 <Loader />
+                <Modal />
             </PersistGate>
         </Provider>
     );

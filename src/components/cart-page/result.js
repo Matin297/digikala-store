@@ -10,7 +10,7 @@ function CartResult({ className, cart }) {
     return (
         <div className={clsx("cart-result", className && className)}>
             <div>
-                <span> جمع کل کالاها </span>
+                <span> جمع کل کالاها ({cart.total_items}) </span>
                 <Price price={cart.total_price} />
             </div>
             <div>
